@@ -1,5 +1,14 @@
 # 变更记录
 
+## 1.1.1 — 2026-09-17
+
+发布前结构与文档清理，功能范围不变。
+
+- 删除 frontmatter 非标准字段 `agent_created`
+- `description` 补上 `Use when` WHEN 子句（兼容英文向校验器），触发词列表保留
+- README：安装路径补全 MiMo Desktop / Claude Code 等常见宿主；说明 README 与 skill 安装纯度的取舍
+- README：去掉不存在的 `quick_validate.py` 引用，改为 skill-creator 官方 `validate_skill.py` 用法
+
 ## 1.1.0 — 2026-09-17
 
 精简与结构优化，功能范围不变（仍专注宝可梦活动缺货类投诉）。
