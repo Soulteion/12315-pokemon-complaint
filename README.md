@@ -82,14 +82,23 @@
 
 ## 安装
 
-把 `12315-pokemon-complaint` 整个目录复制到你的技能目录即可：
+仓库根目录就是技能目录。把整个目录复制（或 clone）到宿主的技能路径即可：
 
-| 作用范围 | 目标路径 |
+| 作用范围 | 目标路径示例 |
 |---|---|
-| 当前用户（所有项目可用） | `~/.workbuddy/skills/12315-pokemon-complaint/` |
-| 当前项目（团队共享） | `<项目根>/.agents/skills/12315-pokemon-complaint/` |
+| MiMo Desktop / MiMoCode（用户级） | `~/.config/mimocode/skills/12315-pokemon-complaint/` |
+| Claude Code（用户级） | `~/.claude/skills/12315-pokemon-complaint/` |
+| Workbuddy（用户级） | `~/.workbuddy/skills/12315-pokemon-complaint/` |
+| 项目级（团队共享） | `<项目根>/.mimocode/skills/` 或对应宿主的项目技能目录 |
+
+```bash
+git clone https://github.com/Soulteion/12315-pokemon-complaint.git \
+  ~/.config/mimocode/skills/12315-pokemon-complaint
+```
 
 或在支持技能市场的宿主里直接搜索 `12315-pokemon-complaint` 安装。
+
+> 仓库保留 `README.md` 是为了 GitHub 可读性；技能本体只依赖 `SKILL.md` 与 `references/`。若宿主校验器禁止 skill 目录内出现 README，安装时去掉它即可，不影响触发与执行。
 
 ---
 
@@ -117,12 +126,13 @@
 
 `references/test-prompts.md` 里有三条回归用例（直接请求投诉 / 有证据但不提交 / 浏览器协助后确认提交）和四条附加检查项。改完技能按那三条提示词各跑一遍。
 
-用 skill-creator 校验：
+结构校验用 skill-creator 自带脚本（路径随宿主安装位置变化）：
 
 ```bash
-python quick_validate.py ./12315-pokemon-complaint
-# 期望输出：Skill is valid!
+python <skill-creator目录>/scripts/validate_skill.py ./12315-pokemon-complaint
 ```
+
+期望：无 ERROR。若校验器因仓库根目录存在 `README.md` 报 ERROR，属公开仓库与安装纯度的已知取舍——技能执行不依赖 README；其余 ERROR 必须修掉。
 
 ---
 
