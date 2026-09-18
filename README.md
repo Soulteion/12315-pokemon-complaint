@@ -24,6 +24,20 @@
 
 ## 怎么调用
 
+### 方式零：其他 harness / 任意 AI（按网址执行）
+
+仓库地址：
+
+**https://github.com/Soulteion/12315-pokemon-complaint**
+
+对未安装本技能的助手（Claude Code、Cursor、其他 Agent、网页版对话等），直接说：
+
+> 按照这个网址执行投诉：https://github.com/Soulteion/12315-pokemon-complaint  
+> 或  
+> 按照这个网址执行投诉：https://raw.githubusercontent.com/Soulteion/12315-pokemon-complaint/main/SKILL.md
+
+助手应：打开/抓取该 URL 下的 `SKILL.md`（及需要时的 `references/*`）→ 按文档流程先收集个案字段 → 生成投诉准备包。未装浏览器时仍须给出六件套材料。
+
 ### 方式一：直接把情况说给 AI 听（最常用）
 
 不用记任何命令，触发词命中就会自动生效：
